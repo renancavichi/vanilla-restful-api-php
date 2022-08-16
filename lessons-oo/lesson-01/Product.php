@@ -7,10 +7,10 @@ class Product{
     public $price; 
 
     // Construct Method 
-    function __construct($id, $image, $nome, $price) {
+    function __construct($id, $image, $name, $price) {
         $this->id = $id;
         $this->image = $image;
-        $this->nome = $name;
+        $this->name = $name;
         //$this->setName($name);
         $this->price = $price;
     }
