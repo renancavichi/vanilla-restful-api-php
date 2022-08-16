@@ -1,0 +1,36 @@
+[
+  {
+    "_id": "a64afb45-d4bd-41d4-8459-062d70a02699",
+    "colId": "history",
+    "containerId": "",
+    "name": "https://servicodados.ibge.gov.br/api/v1/localidades/estados",
+    "url": "https://servicodados.ibge.gov.br/api/v1/localidades/estados",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-08-16T19:39:38.602Z",
+    "modified": "2022-08-16T19:39:38.707Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "8388d99b-c2df-40a8-babc-1165a86229b8",
+    "colId": "history",
+    "containerId": "",
+    "name": "https://servicodados.ibge.gov.br/api/v1/localidades/estados/MG/municipios",
+    "url": "https://servicodados.ibge.gov.br/api/v1/localidades/estados/{UF}/municipios",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-08-16T19:44:38.258Z",
+    "modified": "2022-08-16T19:46:53.562Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "UF",
+        "value": "SP",
+        "isPath": true
+      }
+    ],
+    "tests": []
+  }
+]
