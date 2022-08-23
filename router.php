@@ -1,10 +1,31 @@
 <?php
-require('config.php');
+//importa o arquivo de configuracao
+require 'config.php';
+require HELPERS_FOLDER.'autoloaders.php';
 
-echo 'Abriu o router.php<br>';
-
+//pega a url requisitada
 $url = $_SERVER['REQUEST_URI'];
+//remove a base da url
+$urlClean = str_replace(BASE_PATH, '', $url);
+$urlArray = explode('/',$urlClean);
 
-echo BASE_PATH.'<br>';
-echo $url;
+if(isset($urlArray[0]) && $urlArray[0] != '' &&
+   isset($urlArray[1]) && $urlArray[1] != ''
+){
+    $controller = $urlArray[0].'Controller';
+    $action = $urlArray[1];
+} else{
+    echo 'Endereço da API inválido!';
+    die;
+}
+
+if(file_exists(CONTROLLERS_FOLDER.$controller.'.php')){
+    $obj = new $controller();
+    if(method_exists($obj, $action)){
+        $obj->$action();
+        die;
+    }
+}
+
+echo 'Endereço da API inválido!';
 ?>
