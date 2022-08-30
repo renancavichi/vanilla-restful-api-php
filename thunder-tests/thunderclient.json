@@ -32,5 +32,41 @@
       }
     ],
     "tests": []
+  },
+  {
+    "_id": "e7532722-3136-4f05-bdd6-37d2064f1ae1",
+    "colId": "20ce21ab-3fc6-4607-8a44-fbad655ba630",
+    "containerId": "",
+    "name": "user/signup",
+    "url": "http://localhost/pj3/api-php-ifsp-2022-2/user/signup",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-08-30T20:31:53.410Z",
+    "modified": "2022-08-30T20:32:21.917Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "name",
+          "value": "Maria"
+        },
+        {
+          "name": "email",
+          "value": "maria@gmail.com"
+        },
+        {
+          "name": "pass",
+          "value": "123123"
+        },
+        {
+          "name": "avatar",
+          "value": "https://avatars.githubusercontent.com/u/4259630?v=4"
+        }
+      ]
+    },
+    "tests": []
   }
 ]
