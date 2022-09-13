@@ -40,11 +40,27 @@ class User {
         $conn = $db->connect();
         
         try{
-            $stmt = $conn->prepare("SELECT * FROM users");
+            $stmt = $conn->prepare("SELECT id, name, email, avatar FROM users");
             $stmt->execute();
             $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $conn = null;
             return $users;
+        }catch(PDOException $e) {
+            $db->dbError($e);
+        }
+    }
+
+    function getById(){
+        $db = new Database();
+        $conn = $db->connect();
+        
+        try{
+            $stmt = $conn->prepare("SELECT id, name, email, avatar FROM users WHERE id = :id;");
+            $stmt->bindParam(':id', $this->id);
+            $stmt->execute();
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            $conn = null;
+            return $user;
         }catch(PDOException $e) {
             $db->dbError($e);
         }
