@@ -82,5 +82,25 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "fbbd9d0a-77de-4cd8-9109-bb16b61eceeb",
+    "colId": "20ce21ab-3fc6-4607-8a44-fbad655ba630",
+    "containerId": "",
+    "name": "user/by-id",
+    "url": "http://localhost/pj3/api-php-ifsp-2022-2/user/by-id?id=3",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2022-09-19T20:56:48.503Z",
+    "modified": "2022-09-19T20:56:48.503Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "id",
+        "value": "3",
+        "isPath": false
+      }
+    ],
+    "tests": []
   }
 ]
