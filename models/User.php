@@ -66,6 +66,26 @@ class User {
         }
     }
 
+    function delete(){
+        $db = new Database();
+        $conn = $db->connect();
+        
+        try{
+            $stmt = $conn->prepare("DELETE FROM users WHERE id = :id;");
+            $stmt->bindParam(':id', $this->id);
+            $stmt->execute();
+            $rowsAffected = $stmt->rowCount();
+            $conn = null;
+            if($rowsAffected){
+                return true;
+            } else {
+                return false;
+            }
+        }catch(PDOException $e) {
+            $db->dbError($e);
+        }
+    }
+
 }
 
 ?>

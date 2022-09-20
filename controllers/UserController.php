@@ -67,5 +67,34 @@ class UserController{
             $output->response($result, 404);
         }
     }
+
+    function delete(){
+        $route = new Router();
+        $route->allowedMethod('DELETE');
+
+        $output = new Output();
+
+        //get json input by body json
+        $jsonData = file_get_contents("php://input");
+        $data = json_decode($jsonData, true);
+
+        if(isset($data['id'])){
+            $id = $data['id'];
+        } else {
+            $result['error']['message'] = "Id parameter required!";
+            $output->response($result, 406);
+        }
+
+        $user = new User($id, null, null, null, null);
+        $deleted = $user->delete();
+
+        if($deleted){
+            $result["success"]["message"] = "User $id deleted successfully!";
+            $output->response($result);
+        } else {
+            $result["error"]["message"] = "User $id not found to be deleted!";
+            $output->response($result, 404);
+        }
+    }
 }
 ?> 
