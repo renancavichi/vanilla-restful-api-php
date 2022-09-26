@@ -16,8 +16,7 @@ class User {
     }
 
     function create(){
-        $db = new Database();
-        $conn = $db->connect();
+        $conn = Database::connect();
         
         try{
             $stmt = $conn->prepare("INSERT INTO users (name, email, pass, avatar)
@@ -31,13 +30,12 @@ class User {
             $conn = null;
             return $id;
         }catch(PDOException $e) {
-            $db->dbError($e);
+            Database::dbError($e);
         }
     }
 
     function list(){
-        $db = new Database();
-        $conn = $db->connect();
+        $conn = Database::connect();
         
         try{
             $stmt = $conn->prepare("SELECT id, name, email, avatar FROM users");
@@ -46,13 +44,12 @@ class User {
             $conn = null;
             return $users;
         }catch(PDOException $e) {
-            $db->dbError($e);
+            Database::dbError($e);
         }
     }
 
     function getById(){
-        $db = new Database();
-        $conn = $db->connect();
+        $conn = Database::connect();
         
         try{
             $stmt = $conn->prepare("SELECT id, name, email, avatar FROM users WHERE id = :id;");
@@ -62,13 +59,12 @@ class User {
             $conn = null;
             return $user;
         }catch(PDOException $e) {
-            $db->dbError($e);
+            Database::dbError($e);
         }
     }
 
     function delete(){
-        $db = new Database();
-        $conn = $db->connect();
+        $conn = Database::connect();
         
         try{
             $stmt = $conn->prepare("DELETE FROM users WHERE id = :id;");
@@ -82,7 +78,7 @@ class User {
                 return false;
             }
         }catch(PDOException $e) {
-            $db->dbError($e);
+            Database::dbError($e);
         }
     }
 

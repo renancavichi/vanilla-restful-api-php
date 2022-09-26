@@ -1,6 +1,6 @@
 <?php 
 class Database{
-    function connect(){
+    static function connect(){
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -12,15 +12,14 @@ class Database{
           $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
           return $conn;
         } catch(PDOException $e) {
-            $this->dbError($e);
+            self::dbError($e);
         }
     }
 
-    function dbError($e){
+    static function dbError($e){
         $result["error"]["message"] = "Server error, please try again!";
         $result["error"]["database"] = $e;
-        $output = new Output();
-        $output->response($result, 500);
+        Output::response($result, 500);
     }
 }
 ?>
