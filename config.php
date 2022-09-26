@@ -4,9 +4,7 @@ define('CONTROLLERS_FOLDER','controllers/');
 define('HELPERS_FOLDER','helpers/');
 define('MODELS_FOLDER','models/');
 
-// CORS allowed hosts
-//public api
-//define('ALLOWED_HOSTS', '*')
-//private
-define('ALLOWED_HOSTS', 'http://localhost:3000')
+// CORS
+define('ALLOWED_HOSTS', 'http://localhost:3000');
+define('ALLOWED_METHODS', 'GET, POST, OPTIONS, DELETE, PUT');
 ?>
