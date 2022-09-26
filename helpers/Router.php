@@ -2,6 +2,7 @@
 class Router {
     
     static function gateKeeper(){
+        self::handleCORS();
         //pega a url requisitada
         $url = $_SERVER['REQUEST_URI'];
         //remove a base da url
