@@ -102,6 +102,26 @@ class User {
             Database::dbError($e);
         }
     }
+    
+    function login(){
+        $conn = Database::connect();
+        
+        try{
+            $stmt = $conn->prepare("SELECT id FROM users WHERE pass = :pass AND email = :email;");
+            $stmt->bindParam(':pass', $this->pass);
+            $stmt->bindParam(':email', $this->email);
+            $stmt->execute();
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            $conn = null;
+            if(is_array($user)){
+                return $user['id'];
+            } else {
+                return false;
+            }
+        }catch(PDOException $e) {
+            Database::dbError($e);
+        }
+    }
 
 }
 
