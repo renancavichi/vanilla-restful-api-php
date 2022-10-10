@@ -106,5 +106,24 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "9f89cec0-07d5-4333-ac3a-6e19e66aff4f",
+    "colId": "20ce21ab-3fc6-4607-8a44-fbad655ba630",
+    "containerId": "",
+    "name": "user/update",
+    "url": "{{BASE_PATH}}user/update",
+    "method": "PUT",
+    "sortNum": 60000,
+    "created": "2022-10-10T21:18:04.259Z",
+    "modified": "2022-10-10T21:18:04.259Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "id tokenasdasd"
+      }
+    ],
+    "params": [],
+    "tests": []
   }
 ]
