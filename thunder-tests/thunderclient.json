@@ -1,48 +1,14 @@
 [
   {
-    "_id": "15fa13d8-df72-480e-89fe-70926ccc1764",
-    "colId": "0024e0aa-1719-46d8-897f-428fa015f80c",
-    "containerId": "",
-    "name": "Estados do Brasil",
-    "url": "https://servicodados.ibge.gov.br/api/v1/localidades/estados",
-    "method": "GET",
-    "sortNum": 10000,
-    "created": "2022-08-16T19:42:25.062Z",
-    "modified": "2022-08-16T19:42:25.062Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
-    "_id": "1a253c23-6ff2-4de8-9a78-00a3d34a88ee",
-    "colId": "0024e0aa-1719-46d8-897f-428fa015f80c",
-    "containerId": "",
-    "name": "Municípios por Estado",
-    "url": "https://servicodados.ibge.gov.br/api/v1/localidades/estados/{UF}/municipios",
-    "method": "GET",
-    "sortNum": 20000,
-    "created": "2022-08-16T19:47:14.620Z",
-    "modified": "2022-08-16T19:47:14.620Z",
-    "headers": [],
-    "params": [
-      {
-        "name": "UF",
-        "value": "SP",
-        "isPath": true
-      }
-    ],
-    "tests": []
-  },
-  {
     "_id": "e7532722-3136-4f05-bdd6-37d2064f1ae1",
     "colId": "20ce21ab-3fc6-4607-8a44-fbad655ba630",
     "containerId": "",
     "name": "user/signup",
-    "url": "http://localhost/pj3/api-php-ifsp-2022-2/user/signup",
+    "url": "{{BASE_PATH}}user/signup",
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-08-30T20:31:53.410Z",
-    "modified": "2022-09-06T19:53:54.552Z",
+    "modified": "2022-10-10T18:58:11.361Z",
     "headers": [],
     "params": [],
     "body": {
@@ -74,11 +40,11 @@
     "colId": "20ce21ab-3fc6-4607-8a44-fbad655ba630",
     "containerId": "",
     "name": "user/list",
-    "url": "http://localhost/pj3/api-php-ifsp-2022-2/user/list",
+    "url": "{{BASE_PATH}}user/list",
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-09-06T20:15:30.435Z",
-    "modified": "2022-09-06T20:15:30.435Z",
+    "modified": "2022-10-10T18:58:02.313Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -88,11 +54,11 @@
     "colId": "20ce21ab-3fc6-4607-8a44-fbad655ba630",
     "containerId": "",
     "name": "user/by-id",
-    "url": "http://localhost/pj3/api-php-ifsp-2022-2/user/by-id?id=3",
+    "url": "{{BASE_PATH}}user/by-id?id=3",
     "method": "GET",
     "sortNum": 30000,
     "created": "2022-09-19T20:56:48.503Z",
-    "modified": "2022-09-19T20:56:48.503Z",
+    "modified": "2022-10-10T18:58:21.584Z",
     "headers": [],
     "params": [
       {
@@ -101,6 +67,44 @@
         "isPath": false
       }
     ],
+    "tests": []
+  },
+  {
+    "_id": "66356aa9-707d-4d74-b299-6a9c3b66bcfb",
+    "colId": "20ce21ab-3fc6-4607-8a44-fbad655ba630",
+    "containerId": "",
+    "name": "auth/login",
+    "url": "{{BASE_PATH}}auth/login",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2022-10-10T19:06:00.441Z",
+    "modified": "2022-10-10T19:06:00.441Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"renancavichi@gmail.com\",\n  \"pass\": \"123123\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "04bbf7f9-cf49-4b6b-baf0-e5bbc66b1ff0",
+    "colId": "20ce21ab-3fc6-4607-8a44-fbad655ba630",
+    "containerId": "",
+    "name": "auth/logout",
+    "url": "{{BASE_PATH}}auth/logout",
+    "method": "POST",
+    "sortNum": 50000,
+    "created": "2022-10-10T20:05:54.059Z",
+    "modified": "2022-10-10T20:05:54.059Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"idUser\": \"1\",\n  \"token\": \"d7fe93c91495d1d0ab99f50ac3a53dc68e1e4517\"\n}",
+      "form": []
+    },
     "tests": []
   }
 ]

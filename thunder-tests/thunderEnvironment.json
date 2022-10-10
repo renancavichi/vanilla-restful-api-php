@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "_id": "8923e906-464d-416e-b142-311f92f12980",
+    "name": "local",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2022-10-10T18:56:33.054Z",
+    "modified": "2022-10-10T18:57:12.538Z",
+    "data": [
+      {
+        "name": "BASE_PATH",
+        "value": "http://localhost/pj3/api-php-ifsp-2022-2/"
+      }
+    ]
+  }
+]
