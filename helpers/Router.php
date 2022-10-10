@@ -32,6 +32,16 @@ class Router {
         }
     }
 
+    static function protected(){
+       if(isset($_SERVER['HTTP_AUTHORIZATION'])){
+        $authorization = $_SERVER['HTTP_AUTHORIZATION'];
+    }else{
+        $authorization = 'not set';
+    }
+       $result["auth"]["message"] = $authorization;
+       Output::response($result);
+    }
+
     static function handleCORS(){
         if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
             header("Access-Control-Allow-Origin: ".ALLOWED_HOSTS);
