@@ -79,6 +79,8 @@ class UserController{
 
     function update(){
         Router::allowedMethod('PUT');
+        Router::protected();
+
         
         $data = Input::getData();
         $id = $data['id'];
