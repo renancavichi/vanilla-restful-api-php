@@ -78,12 +78,12 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2022-10-10T19:06:00.441Z",
-    "modified": "2022-10-10T19:06:00.441Z",
+    "modified": "2022-10-11T19:00:00.263Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\": \"renancavichi@gmail.com\",\n  \"pass\": \"123123\"\n}",
+      "raw": "{\n  \"email\": \"renancavichi-teste@gmail.com\",\n  \"pass\": \"123123\"\n}",
       "form": []
     },
     "tests": []
@@ -116,14 +116,43 @@
     "method": "PUT",
     "sortNum": 60000,
     "created": "2022-10-10T21:18:04.259Z",
-    "modified": "2022-10-10T21:18:04.259Z",
+    "modified": "2022-10-11T18:49:10.372Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "id tokenasdasd"
+        "value": "1 19c52475a677767d1082a3afd25d203cf2a844ce"
       }
     ],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"id\": \"3\",\n  \"name\": \"Renan\",\n  \"email\": \"renancavichi-teste@gmail.com\",\n  \"avatar\": \"https://avatars.githubusercontent.com/u/4259630?v=4\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "aef91164-a54b-4025-ad4e-67e0336ae938",
+    "colId": "20ce21ab-3fc6-4607-8a44-fbad655ba630",
+    "containerId": "",
+    "name": "user/delete",
+    "url": "{{BASE_PATH}}user/delete",
+    "method": "DELETE",
+    "sortNum": 70000,
+    "created": "2022-10-11T18:59:17.225Z",
+    "modified": "2022-10-11T18:59:17.225Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "3 dd88c04c69256cb64dd5f8e54c44330897e00c54"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"id\": \"55\"\n}",
+      "form": []
+    },
     "tests": []
   }
 ]
