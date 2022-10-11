@@ -65,6 +65,8 @@ class UserController{
             Output::response($result, 406);
         }
 
+        Router::allowedRole('admin');
+
         $user = new User($id, null, null, null, null);
         $deleted = $user->delete();
 
@@ -79,14 +81,18 @@ class UserController{
 
     function update(){
         Router::allowedMethod('PUT');
-        Router::protected();
-
         
         $data = Input::getData();
         $id = $data['id'];
         $name = $data['name'];
         $email = $data['email'];
         $avatar = $data['avatar'];
+
+        $idUserLogged = Router::allowedRole('client');
+        if($idUserLogged !== $id){
+            $result['error']['message'] = 'Logged user not authorized to update this user profile.';
+            Output::response($result, 403);
+        }
 
         $user = new User($id, $name, $email, null, $avatar);
         $updated = $user->update();
