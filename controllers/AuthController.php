@@ -9,18 +9,19 @@ class AuthController{
         $pass = sha1($data['pass']);
 
         $user = new User(null, null, $email, $pass, null);
-        $idUser = $user->login();
+        $userLogged = $user->login();
         
-        if($idUser){
+        if(is_array($userLogged)){
             $token = sha1(uniqid(rand(), true));
             $client = $_SERVER['HTTP_USER_AGENT'];
-            $session = new Session(null, $idUser, $token, $client);
+            $session = new Session(null, $userLogged['id'], $token, $client);
             $sessionId = $session->create();
             if($sessionId){
                 $result["success"]["message"] = "User logged successfully!";
-                $result["data"]["idUser"] = $idUser;
+                $result["data"]["idUser"] = $userLogged['id'];
                 $result["data"]["token"] = $token;
-                setcookie('id_user', $idUser, (time() + 60 * 60 * 24 * 30 * 6), "/");
+                $result["data"]["role"] = $userLogged['role'];
+                setcookie('id_user', $userLogged['id'], (time() + 60 * 60 * 24 * 30 * 6), "/");
                 setcookie('token', $token, (time() + 60 * 60 * 24 * 30 * 6), "/");
                 Output::response($result);
             } else{
