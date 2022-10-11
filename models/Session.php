@@ -50,5 +50,27 @@ class Session{
             Database::dbError($e);
         }
     }
+
+    function verifyToken($role){
+        $role = '%'.$role.'%';
+        $conn = Database::connect();
+        
+        try{
+            $stmt = $conn->prepare("SELECT s.id_user FROM session as s INNER JOIN users as u ON s.id_user = u.id WHERE s.id_user = :id_user AND s.token = :token AND u.role like :role ;");
+            $stmt->bindParam(':id_user', $this->idUser);
+            $stmt->bindParam(':token', $this->token);
+            $stmt->bindParam(':role', $role);
+            $stmt->execute();
+            $session = $stmt->fetch(PDO::FETCH_ASSOC);
+            $conn = null;
+            if(is_array($session)){
+                return true;
+            } else {
+                return false;
+            }
+        }catch(PDOException $e) {
+            Database::dbError($e);
+        }
+    }
 }
 ?>
