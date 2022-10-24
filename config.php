@@ -14,4 +14,5 @@ define('DB_PASS','');
 // CORS
 define('ALLOWED_HOSTS', 'http://localhost:3000');
 define('ALLOWED_METHODS', 'GET, POST, OPTIONS, DELETE, PUT');
+define('ALLOWED_HEADERS', 'Authorization, Accept, Content-Type')
 ?>

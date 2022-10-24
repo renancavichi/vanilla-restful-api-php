@@ -37,8 +37,14 @@ class AuthController{
     public function logout(){
         Router::allowedMethod('POST');
 
-        $idUser = $_COOKIE['id_user'];
-        $token = $_COOKIE['token'];
+        $idUser = '';
+        $token = '';
+
+        if(isset($_COOKIE['id_user']))
+            $idUser = $_COOKIE['id_user'];
+        
+        if(isset($_COOKIE['token']))
+            $token = $_COOKIE['token'];
 
         $data = Input::getData();
         if(!$idUser)
